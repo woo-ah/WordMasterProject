@@ -8,8 +8,8 @@ public class Word {
     private String word;
     private String meaning;
 
-    Word(){}
-    Word(int id, int level, String word, String meaning){
+    Word(){} // 기본형
+    Word(int id, int level, String word, String meaning){ //파라미터가 있을 때
         this.id = id;
         this.level = level;
         this.word = word;
@@ -55,5 +55,8 @@ public class Word {
         String str = String.format("%-3s", slevel)
                 + String.format("%15s", word) + "  " + meaning;
         return str;
+    }
+    public String toFileString(){
+        return this.level + "|" + this.word + "|" + this.meaning;
     }
 }
