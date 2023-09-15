@@ -129,11 +129,18 @@ public class WordCRUD implements ICRUD{
             while(true){
                 line = br.readLine();
                 if(line == null) break;
-                String data[] = line.split("\\|");                int level = Integer.parseInt(data[0]);
-                String word = data[1];
-                String meaning = data[2];
-                list.add(new Word(0, level, word, meaning));
-                count++;
+                String data[] = line.split("\\|");
+                int level;
+                try {
+                    level = Integer.parseInt(data[0]);
+                    String word = data[1];
+                    String meaning = data[2];
+                    list.add(new Word(0, level, word, meaning));
+                    count++;
+                }
+                catch (NumberFormatException e){
+                    System.out.println("NumberFormatException");
+                }
             }
 
             br.close();
